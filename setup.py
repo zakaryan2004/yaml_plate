@@ -26,13 +26,13 @@ with open("README.md", encoding="utf-8") as f:
     readme = f.read()
 
 setup(
-    name="Plate",
-    version="1.0.0",
-    description="Internationalization Library for Python",
+    name="YAML_Plate",
+    version="1.0.2",
+    description="A fork of Plate (Internationalization library for Python), for YAML",
     long_description=readme,
     long_description_content_type="text/markdown",
-    url="https://github.com/delivrance/plate",
-    author="Dan",
+    url="https://github.com/zakaryan2004/yaml_plate",
+    author="zakaryan2004",
     license="MIT",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -53,12 +53,12 @@ setup(
         "Topic :: Software Development :: Internationalization",
         "Topic :: Software Development :: Localization",
     ],
-    keywords="i18n internationalization l10n localization library python json interpolation pluralization emoji",
+    keywords="i18n internationalization l10n localization library python yaml interpolation pluralization emoji",
     project_urls={
-        "Tracker": "https://github.com/delivrance/plate/issues",
-        "Source": "https://github.com/delivrance/plate",
+        "Tracker": "https://github.com/zakaryan2004/yaml_plate/issues",
+        "Source": "https://github.com/zakaryan2004/yaml_plate",
     },
     python_requires="~=3.5",
-    packages=["plate"],
+    packages=["yaml_plate"],
     zip_safe=False,
 )

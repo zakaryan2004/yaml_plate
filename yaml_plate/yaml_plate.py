@@ -1,6 +1,7 @@
 #  MIT License
 #
 #  Copyright (c) 2020 Dan <https://github.com/delivrance>
+#  Copyright (c) 2021 Gegham Zakaryan <https://github.com/zakaryan2004>
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +21,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-import json
+import yaml
 import logging
 import re
 from functools import partial
@@ -133,7 +134,7 @@ class Plate:
         for path in Path(self.root).iterdir():
             name = path.name
 
-            if not name.endswith(".json"):
+            if not name.endswith(".yaml"):
                 logging.warning('Skipping unknown file "{}"'.format(name))
                 continue
 
@@ -143,8 +144,8 @@ class Plate:
 
             with open(str(path), encoding="utf-8") as f:
                 try:
-                    locale_data = json.load(f)
-                except json.JSONDecodeError as e:
+                    locale_data = yaml.safe_load(f)
+                except yaml.YAMLError as e:
                     raise ValueError('Error in file "{}": {}'.format(name, e)) from None
 
             for k, v in locale_data.items():

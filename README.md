@@ -1,16 +1,18 @@
-# Plate
+# YAML_Plate
 
 <img src="https://i.imgur.com/hZcl3uS.png" width="160" align="right">
 
-> Internationalization Library for Python
+> A fork of <a href="https://github.com/delivrance/plate">Plate</a> (Internationalization library for Python), for YAML
 
-**Plate** (**P**ython trans**late**) is an i18n library for Python that gives your application the ability to
+**YAML Plate** (**YAML** **P**ython trans**late**) is an i18n library for Python that gives your application the ability to
 speak many languages. It is designed to be simple and straightforward to use for **developers** and easy for
 **translators**.
 
+Full credits go to [Dan](https://github.com/delivrance) and other contributors of the original Plate.
+
 ## Features
 
-- Translations based on JSON files
+- Translations based on YAML files
 - Interpolated translations
 - Pluralization
 - Emoji
@@ -18,7 +20,7 @@ speak many languages. It is designed to be simple and straightforward to use for
 ## Installing
 
 ``` shell
-$ pip3 install plate
+$ pip3 install YAML-Plate
 ```
 
 ## Setup
@@ -26,31 +28,27 @@ $ pip3 install plate
 Plate is not going to perform any translation; what it does, instead, is simply providing a way to manage
 already-translated phrases so that they can be easily accessed from your application code.
 
-These translated phrases are kept in JSON files stored in a folder inside the application working directory and
-organized by their respective language codes. The JSON keys are in common to all translations and the values
+These translated phrases are kept in YAML files stored in a folder inside the application working directory and
+organized by their respective language codes. The YAML keys are in common to all translations and the values
 of each contain the translated phrases.
 
 1. Create a new `locales` folder in your working directory to store translation files.
-2. Put files named after their language codes: `en_US.json`, `it_IT.json`, and so on. All available language codes can
-   be found [here](plate/languages.py).
-3. Start adding new phrases and translations. Here's an example for `en_US.json` and `it_IT.json`
-    ``` json
-    {
-        "hello": "Hello", 
-        "morning": "Good morning, {name}",
-        "drink": "Let's drink :SAKE: together",
-        "apples": "No apples | One apple | {count} apples"
-    }
+2. Put files named after their language codes: `en_US.yaml`, `it_IT.yaml`, and so on. All available language codes can
+   be found [here](yaml_plate/languages.py).
+3. Start adding new phrases and translations. Here's an example for `en_US.yaml` and `it_IT.yaml`
+    ``` yaml
+    hello: Hello
+    morning: Good morning, {name}
+    drink: Let's drink :SAKE: together
+    apples: No apples | One apple | {count} apples
     ```
-    ``` json
-    {
-        "hello": "Ciao", 
-        "morning": "Buongiorno, {name}",
-        "drink": "Beviamo :SAKE: insieme",
-        "apples": "Nessuna mela | Una mela | {count} mele"
-    }
+    ``` yaml
+    hello: Ciao
+    morning: Buongiorno, {name}
+    drink: Beviamo :SAKE: insieme
+    apples: Nessuna mela | Una mela | {count} mele
     ```
- 
+
 ## Usage
  
 ### Instantiation
@@ -59,7 +57,7 @@ First of all, create a new `Plate` instance. Plate will automatically look for f
 or another custom folder you pass to the *root* parameter. The default and the fallback locale is `en_US`, by default.
 
 ``` python
-from plate import Plate
+from yaml_plate import Plate
 
 plate = Plate()
 ```
@@ -99,7 +97,7 @@ plate("morning", name="Dan")  # Buongiorno, Dan
 ### Emoji
 
 Emoji can be added with `:EMOJI_NAME:` inside your sources and are automatically inserted with the actual values.
-All available emoji can be found [here](plate/emojipedia.py). You can search for, visualize them and grab their
+All available emoji can be found [here](yaml_plate/emojipedia.py). You can search for, visualize them and grab their
 names at https://emojipedia.org/.
 
 ``` python
@@ -120,3 +118,4 @@ plate("apples", count=7)  # 7 mele
 ## License
 
 MIT © 2020 [Dan](https://github.com/delivrance)
+MIT © 2021 [Gegham Zakaryan](https://github.com/zakaryan2004)

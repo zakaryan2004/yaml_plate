@@ -27,7 +27,7 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="YAML_Plate",
-    version="1.0.2",
+    version="1.0.3",
     description="A fork of Plate (Internationalization library for Python), for YAML",
     long_description=readme,
     long_description_content_type="text/markdown",
@@ -60,5 +60,6 @@ setup(
     },
     python_requires="~=3.5",
     packages=["yaml_plate"],
+    install_requires=["PyYAML"],
     zip_safe=False,
 )
